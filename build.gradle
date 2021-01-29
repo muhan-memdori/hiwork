@@ -1,30 +1,30 @@
 plugins {
-    id 'java'
-    id 'eclipse-wtp'
-    id 'war'
+	id 'org.springframework.boot' version '2.3.8.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
 }
 
+apply plugin: 'eclipse'
+
+group = 'com'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
 repositories {
-    jcenter()
+	mavenCentral()
 }
 
 dependencies {
-
-    // servlet-api 라이브러리 
-    compile 'javax.servlet:javax.servlet-api:4.0.1'
-    
-    // Mybatis 퍼시스턴스 프레임워크
-    implementation 'org.mybatis:mybatis:3.5.6'
-
-    // MariaDB JDBC 드라이버
-    implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.0'
-    
-    // JSON 라이브러리
-    implementation 'com.google.code.gson:gson:2.8.6'
-    
-    implementation 'com.google.guava:guava:29.0-jre'
-    testImplementation 'junit:junit:4.13'
+implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.0'
+  implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+  compile('org.springframework.boot:spring-boot-devtools')
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
 }
 
-
-
+test {
+	useJUnitPlatform()
+}
