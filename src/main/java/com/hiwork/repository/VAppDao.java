@@ -1,4 +1,4 @@
-package com.hiwork.dao;
+package com.hiwork.repository;
 
 import java.util.List;
 import com.hiwork.domain.VApp;
