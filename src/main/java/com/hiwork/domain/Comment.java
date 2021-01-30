@@ -15,10 +15,10 @@ import javax.persistence.Table;
 public class Comment {
   
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "cNo")
+  @Column(name = "cno")
   private long no;
   
-  @Column(name="bNo")
+  @Column(name="bno")
   private int boardNo;
   
   private int stage;

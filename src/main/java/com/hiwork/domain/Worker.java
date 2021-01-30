@@ -17,32 +17,32 @@ public class Worker {
   public static final int HR= 1; // Human Resources 인사
   
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name="wNo")
+  @Column(name="wno")
   private long no; // 사원 번호
-  @Column(name="aCode")
+  @Column(name="acode")
   private int authorityNo;
-  @Column(name="tCode")
+  @Column(name="tcode")
   private int teamNo;
   private int gender; // 성별
-  @Column(name="wName")
+  @Column(name="wname")
   private String name; // 사원 이름
   @Column(name="email")
   private String email; // 사원 이메일
   @Column(name="pwd")
   private int password; // 비밀번호
-  @Column(name="wPhoto")
+  @Column(name="wphoto")
   private String photo; // 사원 사진
   @Column(name="rank")
   private String rank; // 사원 직급
   @Column(name="tel")
   private int tel; // 휴대폰번호
-  @Column(name="eType")
+  @Column(name="etype")
   private String employmentType; // 고용형태
-  @Column(name="regiDate")
+  @Column(name="regidate")
   private Date registrationDate; // 입사일  
-  @Column(name="tAnnu")
+  @Column(name="tannu")
   private int totalAnnual; // 총 연차
-  @Column(name="eSt")
+  @Column(name="est")
   private int employmentState; // 재직상태
  
   public static int getAdmin() {

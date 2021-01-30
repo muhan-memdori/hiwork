@@ -3,6 +3,7 @@ package com.hiwork.domain;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,35 +17,36 @@ import javax.persistence.Table;
 public class Board {
 
   // 게시판
+  /*
   public static final int NOTICE = 1;      // 공지사항
   public static final int NEWS = 2;        // 사내소식
   public static final int BB = 3;          // 사내게시판
   public static final int CAFETERIA = 4;   // 구내식단
-
+*/
   // 게시글 정보
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name="bNo")
+  @Column(name="bno")
   private long no;
   
-  @Column(name="ctNo")
+  @Column(name="ctno")
   private int categoryNo;
   private String title;
   
-  @Column(name="regiDate")
+  @Column(name="regidate")
   private Date registrationDate;
   
-  @Column(name="vCount")
+  @Column(name="vcount")
   private int viewCount;
   
-  @Column(name="aFile")
+  @Column(name="afile")
   private String attachedFile;
   
-  @Column(name="fSize")
+  @Column(name="fsize")
   private int fileSize;
   private String content;
   
-  @ManyToOne
-  @JoinColumn(name ="wNo")
+  @ManyToOne(targetEntity=Worker.class, fetch=FetchType.LAZY)
+  @JoinColumn(name ="wno")
   private Worker writer;
   private int status;
 
@@ -137,7 +139,7 @@ public class Board {
     this.status = status;
     return this;
   }
-
+  /*
   public static int getNotice() {
     return NOTICE;
   }
@@ -153,4 +155,5 @@ public class Board {
   public static int getCafeteria() {
     return CAFETERIA;
   }
+  */
 }
