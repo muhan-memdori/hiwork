@@ -26,12 +26,15 @@ public class Worker {
   private int gender; // 성별
   @Column(name="wName")
   private String name; // 사원 이름
+  @Column(name="email")
   private String email; // 사원 이메일
   @Column(name="pwd")
   private int password; // 비밀번호
   @Column(name="wPhoto")
   private String photo; // 사원 사진
+  @Column(name="rank")
   private String rank; // 사원 직급
+  @Column(name="tel")
   private int tel; // 휴대폰번호
   @Column(name="eType")
   private String employmentType; // 고용형태
@@ -41,7 +44,6 @@ public class Worker {
   private int totalAnnual; // 총 연차
   @Column(name="eSt")
   private int employmentState; // 재직상태
-  private int status;
  
   public static int getAdmin() {
     return ADMIN;
@@ -141,13 +143,6 @@ public class Worker {
   }
   public Worker setEmploymentState(int employmentState) {
     this.employmentState = employmentState;
-    return this;
-  }
-  public int getStatus() {
-    return status;
-  }
-  public Worker setStatus(int status) {
-    this.status = status;
     return this;
   }
 }
