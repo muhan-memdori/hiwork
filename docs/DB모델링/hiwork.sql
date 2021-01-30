@@ -162,7 +162,7 @@ CREATE TABLE cms_vApp (
   edt   DATE        NOT NULL, -- 종료일
   used  INTEGER     NOT NULL, -- 사용연차일수
   rs    MEDIUMTEXT  NOT NULL, -- 신청사유
-  appr  MEDIUMTEXT  NOT NULL DEFAULT 0 -- 승인여부
+  appr  BOOLEAN     NOT NULL DEFAULT 0 -- 승인여부
 );
 
 -- 휴가 신청
