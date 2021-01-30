@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko"
-  xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns:font-size="http://www.w3.org/1999/xhtml">
 
 
   <header th:fragment="headerFragment">
@@ -11,12 +11,46 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
           crossorigin="anonymous">
 
-<div>
-    <figure class="container mt-5">하이워크</figure>
-</div>
+      <script src="https://kit.fontawesome.com/d1fe297f63.js"
+              crossorigin="anonymous"></script>
+
+
+
+          <div class="d-flex justify-content-end mt-4 mr-5">
+              <a><img src="/image/what_was_her_name.jpg" class="rounded-circle mr-2" width="35" height="30">선별
+                  <i class="far fa-bell ml-1"></i></a>
+          </div>
+
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container mb-2">
+              <div class="col-7">
+              <a><img src="/image/hiwork_logo.png" width="50" height="45"></a>
+              <a class="navbar-brand mr-5 mt-1" href="#"><b>하이워크</b></a>
+              </div>
+              <div class="collapse navbar-collapse col-5" id="navbarNavDropdown">
+                  <ul class="navbar-nav ml-4">
+                      <li class="nav-item ml-4">
+                          <a class="nav-link" href="#">회사소개</a>
+                      </li>
+                      <li class="nav-item ml-4">
+                          <a class="nav-link" href="#">근태관리</a>
+                      </li>
+                      <li class="nav-item ml-4">
+                          <a class="nav-link" href="#">캘린더</a>
+                      </li>
+                      <li class="nav-item ml-4">
+                          <a class="nav-link" href="#">사내게시판</a>
+                      </li>
+
+                  </ul>
+              </div>
+          </div>
+      </nav>
 
 
 
   </header>
+
 
 </html>
