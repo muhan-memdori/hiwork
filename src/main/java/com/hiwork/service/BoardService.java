@@ -1,6 +1,7 @@
 package com.hiwork.service;
 
 import java.util.List;
+import java.util.Optional;
 import com.hiwork.domain.Board;
 import com.hiwork.repository.BoardRepository;
 
@@ -12,37 +13,28 @@ public class BoardService {
     this.boardRepository = boardRepository;
   }
 
-  @Override
   public int delete(int no) {
-    return boardRepository.delete(no);
+    boardRepository.inactive(no);
+    return 1;
   }
 
-  @Override
-  public int add(Board board) {
-    return boardRepository.insert(board);
+  public Board add(Board board) {
+    return boardRepository.save(board);
   }
 
-  @Override
   public List<Board> list() {
-    return boardRepository.findAll(null);
+    return boardRepository.findAll();
   }
 
-  @Override
-  public List<Board> list(String keyword)  {
-    return boardRepository.findAll(keyword);
-  }
-
-  @Override
-  public Board get(int no) {
-    Board board = boardRepository.findByNo(no);
-    if (board != null) {
-      boardRepository.updateViewCount(no);
-    }
+  public Optional<Board> get(int no) {
+    Optional<Board> board = boardRepository.findById(no);
+    board.ifPresent(b -> {
+      boardRepository.updateViewCount(b.getNo());
+    });
     return board;
   }
 
-  @Override
-  public int update(Board board) {
-    return boardRepository.update(board);
+  public Board update(Board board) {
+    return boardRepository.save(board);
   }
 }
