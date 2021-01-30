@@ -3,6 +3,7 @@ package com.hiwork.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.hiwork.domain.Calendar;
 
-public interface CalendarRepository extends JpaRepository<Calendar, Integer> {
+import java.util.List;
 
+public interface CalendarRepository extends JpaRepository<Calendar, Long>{
 }

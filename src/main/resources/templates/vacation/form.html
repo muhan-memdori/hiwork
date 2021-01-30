@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorator="layout/default">
+
+<head>
+    <title>hello</title>
+</head>
+
+<div layout:fragment="content">
+
+<form action="add" method="post">
+
+<h1>휴가 신청</h1>
+
+사번 : <textarea readonly>사번</textarea>
+성명 : <textarea readonly>성명</textarea><br>
+잔여 휴가 : <textarea readonly>잔여 휴가</textarea><br>
+신청 날짜 : <input type="date" name="startDate"><br>
+          <p>
+             <label>휴가 종류 선택</label>
+             <select>
+               <option value = "1">연차 휴가</option>
+               <option value = "2">반차 휴가(오전)</option>
+               <option value = "3">반차 휴가(오후)</option>
+               <option value = "4">기타(사유 입력)</option>
+             </select>
+          </p>
+
+상세 사유: <textarea name="content" cols="50" rows="10" ></textarea><br>
+
+<button>휴가 신청</button>
+</form>
+
+</div>
+
+</html>
