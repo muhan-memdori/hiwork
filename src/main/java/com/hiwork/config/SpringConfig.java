@@ -12,27 +12,19 @@ import nz.net.ultraq.thymeleaf.LayoutDialect;
 @Configuration
 public class SpringConfig {
   private final BoardRepository boardRepository;
-  //private final CalenderRepository calenderRepository;
   private final WorkerRepository workerRepository;
 
   @Autowired
-  public SpringConfig(BoardRepository boardRepository/*, CalenderRepository calenderRepository*/, WorkerRepository workerRepository) {
+  public SpringConfig(BoardRepository boardRepository, WorkerRepository workerRepository) {
     this.boardRepository = boardRepository;
-    //this.calenderRepository = calenderRepository;
     this.workerRepository = workerRepository;
   }
 
   @Bean
-  public BoardService boardService() {
+  public BoardService boardService() { 
     return new BoardService(boardRepository);
   }
 
-  /*
-  @Bean
-  public CalenderService calenderService() {
-    return new CalenderService(calenderRepository);
-  }
-  */
   @Bean
   public WorkerService workerService() {
     return new WorkerService(workerRepository);

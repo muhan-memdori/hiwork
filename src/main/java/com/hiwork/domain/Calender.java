@@ -3,6 +3,7 @@ package com.hiwork.domain;
 import java.sql.Date;
 
 public class Calender {
+
   private String calCode;
   private int wNo;
   private String title;
