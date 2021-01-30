@@ -42,8 +42,6 @@ public class SpringConfig {
     return new WorkerService(workerRepository);
   }
 
-<<<<<<< HEAD
-=======
   @Bean
   public CalendarService calendarService() {
     return new CalendarService(calendarRepository);
@@ -54,9 +52,4 @@ public class SpringConfig {
     return new CInfoService(cInfoRepository);
   }
 
-  @Bean
-  public LayoutDialect layoutDialect() {
-    return new LayoutDialect();
-  }
->>>>>>> 9fa416a9c7d18674a3b3ae53ce5266d7afd5f873
 }
