@@ -21,7 +21,7 @@ public class SpringConfig {
   }
 
   @Bean
-  public BoardService boardService() {
+  public BoardService boardService() { 
     return new BoardService(boardRepository);
   }
 
