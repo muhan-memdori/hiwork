@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("loginUser")
 public class VacationController {
 
+  @GetMapping("/form")
+  public void form(Model model) {
+  }
+
   @GetMapping("/add")
   public String add(Model model) {
     return "redirect:.";
@@ -27,7 +31,6 @@ public class VacationController {
   }
 
   @GetMapping("/list")
-  public String list(Model model) {
-    return "redirect:.";
+  public void list(Model model) throws Exception {
   }
 }
