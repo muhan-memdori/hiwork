@@ -43,6 +43,8 @@ public class Board {
   @ManyToOne(targetEntity = Worker.class, fetch = FetchType.LAZY)
   @JoinColumn(name = "wno", updatable = false)
   private Worker writer;
+
+  @Column(insertable = false)
   private int status;
 
   public int getNo() {
