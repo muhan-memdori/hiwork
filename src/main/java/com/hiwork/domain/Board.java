@@ -32,7 +32,7 @@ public class Board {
   private int categoryNo;
   private String title;
   
-  @Column(name="regidate")
+  @Column(name="regidate", insertable = false)
   private Date registrationDate;
   
   @Column(name="vcount")
