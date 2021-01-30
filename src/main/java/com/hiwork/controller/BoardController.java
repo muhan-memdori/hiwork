@@ -20,7 +20,7 @@ public class BoardController {
 
   @Autowired BoardService boardService;
 
-  /*
+  
   @GetMapping("form")
   public void form() {
 
@@ -75,5 +75,4 @@ public class BoardController {
     }
     return "redirect:list";
   }
-  */
 }
