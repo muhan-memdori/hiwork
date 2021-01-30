@@ -1,57 +1,38 @@
 package com.hiwork.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="cms_cinfo")
 public class CInfo {
-  private long crNo;
-  private String cName;
-  private String map;
-  private int postNo;
-  private String addr;
-  private String tel;
-  private String fax;
 
-  public long getCrNo() {
-    return crNo;
-  }
-  public void setCrNo(long crNo) {
-    this.crNo = crNo;
-  }
-  public String getcName() {
-    return cName;
-  }
-  public void setcName(String cName) {
-    this.cName = cName;
-  }
-  public String getMap() {
-    return map;
-  }
-  public void setMap(String map) {
-    this.map = map;
-  }
-  public int getPostNo() {
-    return postNo;
-  }
-  public void setPostNo(int postNo) {
-    this.postNo = postNo;
-  }
-  public String getAddr() {
-    return addr;
-  }
-  public void setAddr(String addr) {
-    this.addr = addr;
-  }
-  public String getTel() {
-    return tel;
-  }
-  public void setTel(String tel) {
-    this.tel = tel;
-  }
-  public String getFax() {
-    return fax;
-  }
-  public void setFax(String fax) {
-    this.fax = fax;
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name="crno")
+  private long no;
+
+  @Column(name="cname")
+  private String name;
+
+  public long getNo() {
+    return no;
   }
 
+  public CInfo setNo(long no) {
+    this.no = no;
+    return this;
+  }
 
+  public String getName() {
+    return name;
+  }
 
+  public CInfo setName(String name) {
+    this.name = name;
+    return this;
+  }
 }
