@@ -109,6 +109,7 @@ CREATE TABLE cms_worker (
   tAnnu    INTEGER      NOT NULL, -- 총 연차
   pwd      VARCHAR(255) NOT NULL, -- 비밀번호
   eSt      INTEGER      NOT NULL  -- 재직 상태
+  status   INTEGER      NOT NULL DEFAULT 1 -- 활성상태
 );
 
 -- 사원
