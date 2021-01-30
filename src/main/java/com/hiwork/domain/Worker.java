@@ -44,6 +44,7 @@ public class Worker {
   private int totalAnnual; // 총 연차
   @Column(name="est")
   private int employmentState; // 재직상태
+  private int status;
  
   public static int getAdmin() {
     return ADMIN;
@@ -145,4 +146,19 @@ public class Worker {
     this.employmentState = employmentState;
     return this;
   }
+  public int getTeamNo() {
+    return teamNo;
+  }
+  public void setTeamNo(int teamNo) {
+    this.teamNo = teamNo;
+  }
+  public int getStatus() {
+    return status;
+  }
+  public Worker setStatus(int status) {
+    this.status = status;
+    return this;
+  }
+  
+  
 }
