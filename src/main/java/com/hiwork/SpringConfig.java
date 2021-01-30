@@ -1,21 +1,23 @@
 package com.hiwork;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import com.hiwork.repository.BoardRepository;
+import com.hiwork.service.BoardService;
 
 @Configuration
 public class SpringConfig {
-  /*
-  private final MemberRepository memberRepository;
+  private final BoardRepository boardRepository;
 
   @Autowired
-  public SpringConfig(MemberRepository memberRepository) {
-    this.memberRepository = memberRepository;
+  public SpringConfig(BoardRepository boardRepository) {
+    this.boardRepository = boardRepository;
   }
 
   @Bean
-  public MemberService memberService() {
-    return new MemberService(memberRepository);
+  public BoardService boardService() {
+    return new BoardService(boardRepository);
   }
 
-  */
 }
