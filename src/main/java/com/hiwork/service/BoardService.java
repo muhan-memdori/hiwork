@@ -25,12 +25,11 @@ public class BoardService {
   }
 
   public List<Board> list() {
-    return boardRepository.findAllByOrderByRegistrationDateDesc()
-            .stream().filter(b -> b.getStatus() == 1).collect(Collectors.toList());
+    return boardRepository.findAllByStatusOrderByRegistrationDateDesc(1);
   }
 
   public Optional<Board> get(int no) {
-    Optional<Board> board = boardRepository.findById(no);
+    Optional<Board> board = boardRepository.findByNoAndStatus(no, 1);
     board.ifPresent(b -> {
       boardRepository.updateViewCount(b.getNo());
     });
