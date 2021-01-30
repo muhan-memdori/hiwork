@@ -1,10 +1,11 @@
-package com.hiwork;
+package com.hiwork.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import com.hiwork.repository.BoardRepository;
 import com.hiwork.service.BoardService;
+import nz.net.ultraq.thymeleaf.LayoutDialect;
 
 @Configuration
 public class SpringConfig {
@@ -19,5 +20,9 @@ public class SpringConfig {
   public BoardService boardService() {
     return new BoardService(boardRepository);
   }
-
+  
+  @Bean
+  public LayoutDialect layoutDialect() {
+    return new LayoutDialect();
+  }
 }
