@@ -7,7 +7,6 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import com.hiwork.domain.Worker;
 import com.hiwork.service.WorkerService;
 
-@Component
 public class AutoLoginInterceptor implements HandlerInterceptor {
   WorkerService workerService;
 
