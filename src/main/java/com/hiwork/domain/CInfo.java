@@ -1,7 +1,7 @@
 package com.hiwork.domain;
 
 public class CInfo {
-  private int crNo;
+  private long crNo;
   private String cName;
   private String map;
   private int postNo;
@@ -9,10 +9,10 @@ public class CInfo {
   private String tel;
   private String fax;
 
-  public int getCrNo() {
+  public long getCrNo() {
     return crNo;
   }
-  public void setCrNo(int crNo) {
+  public void setCrNo(long crNo) {
     this.crNo = crNo;
   }
   public String getcName() {

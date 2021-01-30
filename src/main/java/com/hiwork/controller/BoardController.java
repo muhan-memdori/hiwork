@@ -1,5 +1,6 @@
 package com.hiwork.controller;
 
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,28 +50,20 @@ public class BoardController {
       @RequestParam(defaultValue = "1") int templateType,
       Model model) throws Exception {
 
-    Board board = boardService.get(no);
-    if (board == null) {
-      throw new Exception("해당 번호의 게시글이 없습니다!");
-    }
+    Optional<Board> board = boardService.get(no);
+    board.orElseThrow();
     model.addAttribute("board", board);
-
-    if (templateType == 2) {
-      return "ajax1/board/detail";
-    } else {
-      return "board/detail";
-    }
+    return "board/detail";
   }
 
   @GetMapping("list")
-  public void list(String keyword, Model model) throws Exception {
-    model.addAttribute("list", boardService.list(keyword));
+  public void list(Model model) throws Exception {
+    model.addAttribute("list", boardService.list());
   }
 
   @PostMapping("update")
   public String update(Board board) throws Exception {
-    int count = boardService.update(board);
-    if (count == 0) {
+    if (boardService.update(board) == null) {
       throw new Exception("해당 번호의 게시글이 없습니다.");
     }
     return "redirect:list";

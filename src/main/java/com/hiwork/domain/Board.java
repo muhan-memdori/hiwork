@@ -24,7 +24,7 @@ public class Board {
   // 게시글 정보
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name="bNo")
-  private int no;
+  private long no;
   
   @Column(name="ctNo")
   private int categoryNo;
@@ -48,11 +48,11 @@ public class Board {
   private Worker writer;
   private int status;
 
-  public int getNo() {
+  public long getNo() {
     return no;
   }
 
-  public Board setNo(int no) {
+  public Board setNo(long no) {
     this.no = no;
     return this;
   }
