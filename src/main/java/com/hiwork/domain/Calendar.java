@@ -2,7 +2,7 @@ package com.hiwork.domain;
 
 import java.sql.Date;
 
-public class Calender {
+public class Calendar {
 
   private String calCode;
   private int wNo;

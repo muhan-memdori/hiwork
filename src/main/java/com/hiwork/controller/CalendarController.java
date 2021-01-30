@@ -3,7 +3,7 @@ package com.hiwork.controller;
 // @Controller
 // @RequestMapping("/calender")
 //@SessionAttributes("loginUser")
-public class CalenderController {
+public class CalendarController {
 
 //    @Autowired
 //    CalenderService calenderService;
