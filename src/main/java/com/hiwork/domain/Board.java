@@ -1,13 +1,18 @@
 package com.hiwork.domain;
 
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name="cms_blist")
 public class Board {
 
   // 게시판
@@ -18,14 +23,28 @@ public class Board {
 
   // 게시글 정보
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name="bNo")
   private int no;
-  private int categoryNo;              // 게시판 번호 (외래키)
+  
+  @Column(name="ctNo")
+  private int categoryNo;
   private String title;
+  
+  @Column(name="regiDate")
   private Date registrationDate;
+  
+  @Column(name="vCount")
   private int viewCount;
+  
+  @Column(name="aFile")
   private String attachedFile;
+  
+  @Column(name="fSize")
   private int fileSize;
   private String content;
+  
+  @ManyToOne
+  @JoinColumn(name ="wNo")
   private Worker writer;
   private int status;
 

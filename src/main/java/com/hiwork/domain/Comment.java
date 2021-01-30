@@ -1,20 +1,36 @@
 package com.hiwork.domain;
 
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="cms_cmtInfo")
 public class Comment {
+  
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "cNo")
   private int no;
+  
+  @Column(name="bNo")
   private int boardNo;
+  
   private int stage;
   private String content;
+  
+  @Column(name="rdt")
   private Date registrationDate;
+  
+  @ManyToOne
+  @JoinColumn(name ="wNo")
   private Worker writer;
+  
   private int momNo;
   private int status;
   
