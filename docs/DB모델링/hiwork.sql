@@ -107,7 +107,7 @@ CREATE TABLE cms_worker (
   tel      INTEGER      NOT NULL, -- 휴대폰번호
   gender   INTEGER      NOT NULL, -- 성별
   tAnnu    INTEGER      NOT NULL, -- 총 연차
-  pwd      VARCHAR(255)      NOT NULL, -- 비밀번호
+  pwd      VARCHAR(255) NOT NULL, -- 비밀번호
   eSt      INTEGER      NOT NULL  -- 재직 상태
 );
 
@@ -544,12 +544,27 @@ values(4, 4, 5, '게시글 제목 테스트4', '2020-11-18', 0, '첨부파일명
 -- 댓글 정보 예제 데이터
 insert into cms_cmtInfo(cNo, bNo, stage, content, rdt, wNo, momNo)
 values(1, 1, 1, "댓글 내용1", '2020-11-18', 1, 1);
+<<<<<<< HEAD
 
 insert into cms_cmtInfo(cNo, bNo, stage, content, rdt, wNo, momNo)
 values(2, 2, 1, "댓글 내용2", '2020-11-18', 2, 2);
 
 insert into cms_cmtInfo(cNo, bNo, stage, content, rdt, wNo, momNo)
 values(3, 3, 1, "댓글 내용3", '2020-11-19', 3, 3);
+=======
+
+insert into cms_cmtInfo(cNo, bNo, stage, content, rdt, wNo, momNo)
+values(2, 2, 1, "댓글 내용2", '2020-11-18', 2, 2);
+
+insert into cms_cmtInfo(cNo, bNo, stage, content, rdt, wNo, momNo)
+values(3, 3, 1, "댓글 내용3", '2020-11-19', 3, 3);
+
+insert into cms_cmtInfo(cNo, bNo, stage, content, rdt, wNo, momNo)
+values(4, 4, 1, "댓글 내용4", '2020-11-20', 4, 4);
+
+insert into cms_cmtInfo(cNo, bNo, stage, content, rdt, wNo, momNo)
+values(5, 4, 2, "댓글 내용5", '2020-11-20', 5, 4);
+>>>>>>> 0f3e95c425091ac0156ffdca1264330b760c4a51
 
 insert into cms_cmtInfo(cNo, bNo, stage, content, rdt, wNo, momNo)
 values(4, 4, 1, "댓글 내용4", '2020-11-20', 4, 4);
