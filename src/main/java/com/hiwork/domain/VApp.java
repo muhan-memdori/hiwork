@@ -1,70 +1,128 @@
 package com.hiwork.domain;
 
 import java.sql.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="cms_vApp")
 public class VApp {
-  private long vNo;
-  private String vCode;
-  private int wNo;
-  private Date adt;
-  private Date sdt;
-  private Date edt;
-  private int used;
-  private String rs;
-  private String appr;
 
-  public long getvNo() {
-    return vNo;
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name="vNo")
+  private long vacayNo;
+
+  @JoinColumn(name="vCode")
+  private String vacayCode;
+
+  @ManyToOne(targetEntity=Worker.class, fetch=FetchType.LAZY)
+  @JoinColumn(name="wNo")
+  private Worker worker;
+
+  @Column(name="adt")
+  private Date appliedDate; // 신청일
+
+  @Column(name="sdt")
+  private Date startDate; // 휴가 시작일
+
+  @Column(name="edt")
+  private Date endDate; // 휴가 종료일
+
+  @Column(name="used")
+  private int usedVacation; // 사용된 연차 일수
+
+  @Column(name="rs")
+  private String reason; // 신청 사유
+
+  @Column(name="appr")
+  private Boolean isApproved; // 승인 여부
+
+  public long getVacayNo() {
+    return vacayNo;
   }
-  public void setvNo(long vNo) {
-    this.vNo = vNo;
+
+  public VApp setVacayNo(long vacayNo) {
+    this.vacayNo = vacayNo;
+    return this;
   }
-  public String getvCode() {
-    return vCode;
+
+  public String getVacayCode() {
+    return vacayCode;
   }
-  public void setvCode(String vCode) {
-    this.vCode = vCode;
+
+  public VApp setVacayCode(String vacayCode) {
+    this.vacayCode = vacayCode;
+    return this;
   }
-  public int getwNo() {
-    return wNo;
+
+  public Worker getWorker() {
+    return worker;
   }
-  public void setwNo(int wNo) {
-    this.wNo = wNo;
+
+  public VApp setWorker(Worker worker) {
+    this.worker = worker;
+    return this;
   }
-  public Date getAdt() {
-    return adt;
+
+  public Date getAppliedDate() {
+    return appliedDate;
   }
-  public void setAdt(Date adt) {
-    this.adt = adt;
+
+  public VApp setAppliedDate(Date appliedDate) {
+    this.appliedDate = appliedDate;
+    return this;
   }
-  public Date getSdt() {
-    return sdt;
+
+  public Date getStartDate() {
+    return startDate;
   }
-  public void setSdt(Date sdt) {
-    this.sdt = sdt;
+
+  public VApp setStartDate(Date startDate) {
+    this.startDate = startDate;
+    return this;
   }
-  public Date getEdt() {
-    return edt;
+
+  public Date getEndDate() {
+    return endDate;
   }
-  public void setEdt(Date edt) {
-    this.edt = edt;
+
+  public VApp setEndDate(Date endDate) {
+    this.endDate = endDate;
+    return this;
   }
-  public int getUsed() {
-    return used;
+
+  public int getUsedVacation() {
+    return usedVacation;
   }
-  public void setUsed(int used) {
-    this.used = used;
+
+  public VApp setUsedVacation(int usedVacation) {
+    this.usedVacation = usedVacation;
+    return this;
   }
-  public String getRs() {
-    return rs;
+
+  public String getReason() {
+    return reason;
   }
-  public void setRs(String rs) {
-    this.rs = rs;
+
+  public VApp setReason(String reason) {
+    this.reason = reason;
+    return this;
   }
-  public String getAppr() {
-    return appr;
+
+  public Boolean getIsApproved() {
+    return isApproved;
   }
-  public void setAppr(String appr) {
-    this.appr = appr;
+
+  public VApp setIsApproved(Boolean isApproved) {
+    this.isApproved = isApproved;
+    return this;
   }
+
 }

@@ -3,6 +3,7 @@ package com.hiwork.domain;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,37 +15,31 @@ import javax.persistence.Table;
 @Entity
 @Table(name="cms_blist")
 public class Board {
-
-  // 게시판
-  public static final int NOTICE = 1;      // 공지사항
-  public static final int NEWS = 2;        // 사내소식
-  public static final int BB = 3;          // 사내게시판
-  public static final int CAFETERIA = 4;   // 구내식단
-
-  // 게시글 정보
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name="bNo")
+  @Column(name="bno")
   private long no;
   
-  @Column(name="ctNo")
-  private int categoryNo;
   private String title;
   
-  @Column(name="regiDate")
+  @ManyToOne(targetEntity=Category.class, fetch=FetchType.LAZY)
+  @JoinColumn(name ="ctno")
+  private Category category;
+  
+  @Column(name="regidate", insertable = false)
   private Date registrationDate;
   
-  @Column(name="vCount")
+  @Column(name="vcount")
   private int viewCount;
   
-  @Column(name="aFile")
+  @Column(name="afile")
   private String attachedFile;
   
-  @Column(name="fSize")
+  @Column(name="fsize")
   private int fileSize;
   private String content;
   
-  @ManyToOne
-  @JoinColumn(name ="wNo")
+  @ManyToOne(targetEntity=Worker.class, fetch=FetchType.LAZY)
+  @JoinColumn(name ="wno")
   private Worker writer;
   private int status;
 
@@ -57,12 +52,12 @@ public class Board {
     return this;
   }
 
-  public int getCategoryNo() {
-    return categoryNo;
+  public Category getCategory() {
+    return category;
   }
 
-  public Board setCategoryNo(int categoryNo) {
-    this.categoryNo = categoryNo;
+  public Board setCategoryNo(Category category) {
+    this.category = category;
     return this;
   }
 
@@ -136,21 +131,5 @@ public class Board {
   public Board setStatus(int status) {
     this.status = status;
     return this;
-  }
-
-  public static int getNotice() {
-    return NOTICE;
-  }
-
-  public static int getNews() {
-    return NEWS;
-  }
-
-  public static int getBb() {
-    return BB;
-  }
-
-  public static int getCafeteria() {
-    return CAFETERIA;
   }
 }

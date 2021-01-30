@@ -8,31 +8,25 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cms_cinfo")
-public class CInfo {
-
+@Table(name="cms_category")
+public class Category {
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name="crno")
-  private long no;
-
-  @Column(name="cname")
+  @Column(name="ctno")
+  private int no;
+  
+  @Column(name="ctName")
   private String name;
-
-  public long getNo() {
+  
+  public int getNo() {
     return no;
   }
-
-  public CInfo setNo(long no) {
+  public void setNo(int no) {
     this.no = no;
-    return this;
   }
-
   public String getName() {
     return name;
   }
-
-  public CInfo setName(String name) {
+  public void setName(String name) {
     this.name = name;
-    return this;
   }
 }

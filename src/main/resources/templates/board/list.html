@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorator="layout/default">
+
+<head>
+    <title>hello</title>
+</head>
+
+<div layout:fragment="content">
+  <a href='form' class="btn btn-primary btn-sm">새 글</a><br>
+ 
+<table class="table table-striped table-hover">
+<thead><tr><th>번호</th><th>제목</th><th>작성자</th><th>등록일</th><th>조회수</th></tr></thead>
+<tbody>
+
+<tr th:each="b : ${list}">
+  <td th:text="${b.no}">번호</td>
+  <td th:text="${b.title}"><a href='detail?no=${b.no}'>제목</a></td>
+  <td th:text="${b.writer.name}">작성자</td>
+  <td th:text="${b.registrationDate}">등록일</td>
+  <td th:text="${b.viewCount}">조회수</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</html>
