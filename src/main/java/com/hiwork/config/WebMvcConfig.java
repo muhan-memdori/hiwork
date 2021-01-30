@@ -1,18 +1,19 @@
 package com.hiwork.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.hiwork.interceptor.AutoLoginInterceptor;
-import com.hiwork.service.WorkerService;
 
+@Configuration
 public class WebMvcConfig implements WebMvcConfigurer{
   @Autowired
-  WorkerService workerService;
+  AutoLoginInterceptor autoLoginInterceptor;
   
   @Override 
   public void addInterceptors(InterceptorRegistry registry) { 
-    registry.addInterceptor(new AutoLoginInterceptor(workerService));
+    registry.addInterceptor(autoLoginInterceptor);
   }
 
 }
