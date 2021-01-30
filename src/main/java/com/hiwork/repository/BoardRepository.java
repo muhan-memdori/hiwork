@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import com.hiwork.domain.Board;
 
+import java.util.List;
+
 public interface BoardRepository extends JpaRepository<Board, Integer> {
 
   @Transactional
@@ -19,4 +21,5 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
   @Query("UPDATE Board b SET b.status = 0 where b.no = :no")
   void inactive(@Param("no") int no);
 
+  List<Board> findAllByStatus(@Param("status") int status);
 }

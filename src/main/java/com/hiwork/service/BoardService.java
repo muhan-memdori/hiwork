@@ -23,7 +23,7 @@ public class BoardService {
   }
 
   public List<Board> list() {
-    return boardRepository.findAll();
+    return boardRepository.findAllByStatus(1);
   }
 
   public Optional<Board> get(int no) {
