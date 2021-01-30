@@ -11,86 +11,105 @@ public class Board {
   public static final int CAFETERIA = 4;   // 구내식단
 
   // 게시글 정보
-  private int bNo;
-  private int bNo2;              // 게시판 번호 (외래키)
-  // private Worker wNo;               // 사원 번호 (외래키)
+  private int no;
+  private int categoryNo;              // 게시판 번호 (외래키)
   private String title;
-  private Date regiDate;
-  private int vCount;
-  private String aFile;
-  private int fSize;
+  private Date registrationDate;
+  private int viewCount;
+  private String attachedFile;
+  private int fileSize;
   private String content;
+  private Worker writer;
+  private int status;
 
-  public int getbNo2() {
-    return bNo2;
+  public int getNo() {
+    return no;
   }
 
-  public void setbNo2(int bNo2) {
-    this.bNo2 = bNo2;
-  }
-  //
-  //  public Worker getwNo() {
-  //    return wNo;
-  //  }
-  //
-  //  public void setwNo(Worker wNo) {
-  //    this.wNo = wNo;
-  //  }
-
-  public int getbNo() {
-    return bNo;
+  public Board setNo(int no) {
+    this.no = no;
+    return this;
   }
 
-  public void setbNo(int bNo) {
-    this.bNo = bNo;
+  public int getCategoryNo() {
+    return categoryNo;
+  }
+
+  public Board setCategoryNo(int categoryNo) {
+    this.categoryNo = categoryNo;
+    return this;
   }
 
   public String getTitle() {
     return title;
   }
 
-  public void setTitle(String title) {
+  public Board setTitle(String title) {
     this.title = title;
+    return this;
   }
 
-  public Date getRegiDate() {
-    return regiDate;
+  public Date getRegistrationDate() {
+    return registrationDate;
   }
 
-  public void setRegiDate(Date regiDate) {
-    this.regiDate = regiDate;
+  public Board setRegistrationDate(Date registrationDate) {
+    this.registrationDate = registrationDate;
+    return this;
   }
 
-  public int getvCount() {
-    return vCount;
+  public int getViewCount() {
+    return viewCount;
   }
 
-  public void setvCount(int vCount) {
-    this.vCount = vCount;
+  public Board setViewCount(int viewCount) {
+    this.viewCount = viewCount;
+    return this;
   }
 
-  public String getaFile() {
-    return aFile;
+  public String getAttachedFile() {
+    return attachedFile;
   }
 
-  public void setaFile(String aFile) {
-    this.aFile = aFile;
+  public Board setAttachedFile(String attachedFile) {
+    this.attachedFile = attachedFile;
+    return this;
   }
 
-  public int getfSize() {
-    return fSize;
+  public int getFileSize() {
+    return fileSize;
   }
 
-  public void setfSize(int fSize) {
-    this.fSize = fSize;
+  public Board setFileSize(int fileSize) {
+    this.fileSize = fileSize;
+    return this;
   }
 
   public String getContent() {
     return content;
   }
 
-  public void setContent(String content) {
+  public Board setContent(String content) {
     this.content = content;
+    return this;
+  }
+
+  public Worker getWriter() {
+    return writer;
+  }
+
+  public Board setWriter(Worker writer) {
+    this.writer = writer;
+    return this;
+  }
+  
+  public int getStatus() {
+    return status;
+  }
+
+  public Board setStatus(int status) {
+    this.status = status;
+    return this;
   }
 
   public static int getNotice() {
