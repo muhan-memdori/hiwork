@@ -11,38 +11,38 @@ public class BoardService {
   public BoardService(BoardRepository boardRepository) {
     this.boardRepository = boardRepository;
   }
-
-  @Override
-  public int delete(int no) {
-    return boardRepository.delete(no);
-  }
-
-  @Override
-  public int add(Board board) {
-    return boardRepository.insert(board);
-  }
-
-  @Override
-  public List<Board> list() {
-    return boardRepository.findAll(null);
-  }
-
-  @Override
-  public List<Board> list(String keyword)  {
-    return boardRepository.findAll(keyword);
-  }
-
-  @Override
-  public Board get(int no) {
-    Board board = boardRepository.findByNo(no);
-    if (board != null) {
-      boardRepository.updateViewCount(no);
-    }
-    return board;
-  }
-
-  @Override
-  public int update(Board board) {
-    return boardRepository.update(board);
-  }
+//
+//  @Override
+//  public int delete(int no) {
+//    return boardRepository.delete(no);
+//  }
+//
+//  @Override
+//  public int add(Board board) {
+//    return boardRepository.insert(board);
+//  }
+//
+//  @Override
+//  public List<Board> list() {
+//    return boardRepository.findAll(null);
+//  }
+//
+//  @Override
+//  public List<Board> list(String keyword)  {
+//    return boardRepository.findAll(keyword);
+//  }
+//
+//  @Override
+//  public Board get(int no) {
+//    Board board = boardRepository.findByNo(no);
+//    if (board != null) {
+//      boardRepository.updateViewCount(no);
+//    }
+//    return board;
+//  }
+//
+//  @Override
+//  public int update(Board board) {
+//    return boardRepository.update(board);
+//  }
 }
