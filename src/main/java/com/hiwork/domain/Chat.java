@@ -3,16 +3,16 @@ package com.hiwork.domain;
 import java.sql.Date;
 
 public class Chat {
-  private int cNo;
+  private long cNo;
   private int wNo;
   private int gChatCode;
   private String cContent;
   private String cName;
   private Date cDate;
-  public int getcNo() {
+  public long getcNo() {
     return cNo;
   }
-  public void setcNo(int cNo) {
+  public void setcNo(long cNo) {
     this.cNo = cNo;
   }
   public int getwNo() {
