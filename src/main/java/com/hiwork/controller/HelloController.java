@@ -12,4 +12,10 @@ public class HelloController {
     model.addAttribute("data", "자동리로드가 되나 안되나");
     return "hello";
   }
+  
+  @GetMapping("layout")
+  public String layout(Model model) {
+    model.addAttribute("data", "레이아웃이 만들어지나 안만들어지나");
+    return "layout";
+  }
 }
