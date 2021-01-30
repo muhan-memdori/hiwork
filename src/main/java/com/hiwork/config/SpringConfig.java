@@ -7,7 +7,6 @@ import com.hiwork.repository.BoardRepository;
 import com.hiwork.repository.WorkerRepository;
 import com.hiwork.service.BoardService;
 import com.hiwork.service.WorkerService;
-import nz.net.ultraq.thymeleaf.LayoutDialect;
 
 @Configuration
 public class SpringConfig {
@@ -29,9 +28,5 @@ public class SpringConfig {
   public WorkerService workerService() {
     return new WorkerService(workerRepository);
   }
-  
-  @Bean
-  public LayoutDialect layoutDialect() {
-    return new LayoutDialect();
-  }
+
 }

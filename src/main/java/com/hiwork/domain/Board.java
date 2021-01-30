@@ -15,22 +15,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name="cms_blist")
 public class Board {
-
-  // 게시판
-  /*
-  public static final int NOTICE = 1;      // 공지사항
-  public static final int NEWS = 2;        // 사내소식
-  public static final int BB = 3;          // 사내게시판
-  public static final int CAFETERIA = 4;   // 구내식단
-*/
-  // 게시글 정보
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name="bno")
   private long no;
   
-  @Column(name="ctno")
-  private int categoryNo;
   private String title;
+  
+  @ManyToOne(targetEntity=Category.class, fetch=FetchType.LAZY)
+  @JoinColumn(name ="ctno")
+  private Category category;
   
   @Column(name="regidate", insertable = false)
   private Date registrationDate;
@@ -59,12 +52,12 @@ public class Board {
     return this;
   }
 
-  public int getCategoryNo() {
-    return categoryNo;
+  public Category getCategory() {
+    return category;
   }
 
-  public Board setCategoryNo(int categoryNo) {
-    this.categoryNo = categoryNo;
+  public Board setCategoryNo(Category category) {
+    this.category = category;
     return this;
   }
 
@@ -139,21 +132,4 @@ public class Board {
     this.status = status;
     return this;
   }
-  /*
-  public static int getNotice() {
-    return NOTICE;
-  }
-
-  public static int getNews() {
-    return NEWS;
-  }
-
-  public static int getBb() {
-    return BB;
-  }
-
-  public static int getCafeteria() {
-    return CAFETERIA;
-  }
-  */
 }
