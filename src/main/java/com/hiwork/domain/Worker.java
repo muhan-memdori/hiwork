@@ -65,59 +65,69 @@ public class Worker {
   }
   public Worker setEmail(String email) {
     this.email = email;
+    return this;
   }
   public int getPassword() {
     return password;
   }
   public Worker setPassword(int password) {
     this.password = password;
+    return this;
   }
   public String getPhoto() {
     return photo;
   }
   public Worker setPhoto(String photo) {
     this.photo = photo;
+    return this;
   }
   public String getRank() {
     return rank;
   }
   public Worker setRank(String rank) {
     this.rank = rank;
+    return this;
   }
   public int getTel() {
     return tel;
   }
   public Worker setTel(int tel) {
     this.tel = tel;
+    return this;
   }
   public String getEmploymentType() {
     return employmentType;
   }
   public Worker setEmploymentType(String employmentType) {
     this.employmentType = employmentType;
+    return this;
   }
   public Date getRegistrationDate() {
     return registrationDate;
   }
   public Worker setRegistrationDate(Date registrationDate) {
     this.registrationDate = registrationDate;
+    return this;
   }
   public int getTotaAnnual() {
     return TotaAnnual;
   }
   public Worker setTotaAnnual(int totaAnnual) {
     TotaAnnual = totaAnnual;
+    return this;
   }
   public int getEmploymentState() {
     return employmentState;
   }
   public Worker setEmploymentState(int employmentState) {
     this.employmentState = employmentState;
+    return this;
   }
   public int getStatus() {
     return status;
   }
   public Worker setStatus(int status) {
     this.status = status;
+    return this;
   }
 }
