@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorator="layout/default">
+  <head>
+
+    <meta charset="UTF-8">
+    <title>calendar</title>
+
+  </head>
+
+  <!-- 페이지의 개별적인 css -->
+  <th:block layout:fragment="css">
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css" />
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css" />
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css" />
+  </th:block>
+
+  <div layout:fragment="content">
+    <script src="https://uicdn.toast.com/tui.code-snippet/v1.5.2/tui-code-snippet.min.js"></script>
+    <script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
+    <script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
+    <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
+
+  <script>
+    var Calendar = tui.Calendar;
+    var calendar = new Calendar('#calendar', {
+  defaultView: 'month',
+  taskView: true,
+  template: {
+    monthDayname: function(dayname) {
+      return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
+    }
+  }
+});
+  </script>
+  <!-- 달력 -->
+  <div id="calendar" style="height: 800px;"></div>
+
+  <!-- 일정 리스트 -->
+  <table class="table table-striped table-hover">
+    <thead><tr><th>번호</th><th>작성자</th><th>제목</th><th>시작일</th><th>마감일</th><th>내용</th><th>장소</th></tr></thead>
+    <tbody>
+
+    <tr th:each="c : ${list}">
+      <td th:text="${c.calCode}">번호</td>
+      <td th:text="${c.writer.name}">작성자</a></td>
+      <td th:text="${c.title}">제목</td>
+      <td th:text="${c.sdt}">시작일</td>
+      <td th:text="${c.edt}">마감일</td>
+      <td th:text="${c.content}">내용</td>
+      <td th:text="${c.place}">장소</td>
+    </tr>
+
+    </tbody>
+  </table>
+    </div>
+</html>
