@@ -1,12 +1,15 @@
 package com.hiwork.domain;
 
 import java.sql.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="cms_worker")
 public class Worker {
   
   public static final int ADMIN = 9; // 관리자
@@ -14,18 +17,29 @@ public class Worker {
   public static final int HR= 1; // Human Resources 인사
   
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name="wNo")
   private int no; // 사원 번호
-  private int authority;
+  @Column(name="aCode")
+  private int authorityNo;
+  @Column(name="tCode")
+  private int teamNo;
   private int gender; // 성별
+  @Column(name="wName")
   private String name; // 사원 이름
   private String email; // 사원 이메일
+  @Column(name="pwd")
   private int password; // 비밀번호
+  @Column(name="wPhoto")
   private String photo; // 사원 사진
   private String rank; // 사원 직급
   private int tel; // 휴대폰번호
+  @Column(name="eType")
   private String employmentType; // 고용형태
+  @Column(name="regiDate")
   private Date registrationDate; // 입사일  
-  private int TotaAnnual; // 총 연차
+  @Column(name="tAnnu")
+  private int totalAnnual; // 총 연차
+  @Column(name="eSt")
   private int employmentState; // 재직상태
   private int status;
  
@@ -38,11 +52,11 @@ public class Worker {
   public static int getHr() {
     return HR;
   }
-  public int getAuthority() {
-    return authority;
+  public int getAuthorityNo() {
+    return authorityNo;
   }
-  public Worker setAuthority(int authority) {
-    this.authority = authority;
+  public Worker setAuthorityNo(int authorityNo) {
+    this.authorityNo = authorityNo;
     return this;
   }
   public int getNo() {
@@ -115,11 +129,11 @@ public class Worker {
     this.registrationDate = registrationDate;
     return this;
   }
-  public int getTotaAnnual() {
-    return TotaAnnual;
+  public int getTotalAnnual() {
+    return totalAnnual;
   }
-  public Worker setTotaAnnual(int totaAnnual) {
-    TotaAnnual = totaAnnual;
+  public Worker setTotalAnnual(int totaAnnual) {
+    this.totalAnnual = totaAnnual;
     return this;
   }
   public int getEmploymentState() {

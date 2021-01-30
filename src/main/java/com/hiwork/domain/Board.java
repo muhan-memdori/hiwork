@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -43,7 +43,7 @@ public class Board {
   private int fileSize;
   private String content;
   
-  @OneToMany
+  @ManyToOne
   @JoinColumn(name ="wNo")
   private Worker writer;
   private int status;
