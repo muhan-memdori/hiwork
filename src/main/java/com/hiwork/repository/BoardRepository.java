@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import com.hiwork.domain.Board;
 
 public interface BoardRepository extends JpaRepository<Board, Integer> {
+
   @Modifying
   @Query("UPDATE Board b SET b.viewCount = b.viewCount + 1 where b.no = :no")
   void updateViewCount(long no);

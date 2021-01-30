@@ -1,11 +1,20 @@
 package com.hiwork.service;
 
-import java.util.List;
 import com.hiwork.domain.Calender;
+import com.hiwork.repository.CalenderRepository;
+import org.springframework.stereotype.Service;
 
-public interface CalenderService {
+import java.util.List;
 
+public class CalenderService  {
 
-  List<Calender> list() throws Exception;
+    CalenderRepository calenderRepository;
 
+    public CalenderService(CalenderRepository calenderRepository) {
+        this.calenderRepository = calenderRepository;
+    }
+
+    public List<Calender> list() {
+        return calenderRepository.findAll();
+    }
 }
