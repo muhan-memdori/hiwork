@@ -2,6 +2,8 @@ package com.hiwork.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 import com.hiwork.domain.Board;
 import com.hiwork.repository.BoardRepository;
 
@@ -23,7 +25,8 @@ public class BoardService {
   }
 
   public List<Board> list() {
-    return boardRepository.findAllByStatus(1);
+    return boardRepository.findAllByOrderByRegistrationDateDesc()
+            .stream().filter(b -> b.getStatus() == 1).collect(Collectors.toList());
   }
 
   public Optional<Board> get(int no) {

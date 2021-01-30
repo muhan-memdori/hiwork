@@ -21,5 +21,5 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
   @Query("UPDATE Board b SET b.status = 0 where b.no = :no")
   void inactive(@Param("no") int no);
 
-  List<Board> findAllByStatus(@Param("status") int status);
+  List<Board> findAllByOrderByRegistrationDateDesc();
 }
