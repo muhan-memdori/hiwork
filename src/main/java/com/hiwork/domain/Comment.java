@@ -1,14 +1,10 @@
 package com.hiwork.domain;
 
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-@Entity
+// @Entity
 public class Comment {
-  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  // @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int no;
   private int boardNo;
   private int stage;
@@ -17,7 +13,7 @@ public class Comment {
   private Worker writer;
   private int momNo;
   private int status;
-  
+
   public int getNo() {
     return no;
   }
@@ -74,5 +70,5 @@ public class Comment {
     this.status = status;
     return this;
   }
-  
+
 }
