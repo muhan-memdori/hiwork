@@ -13,30 +13,31 @@ import javax.persistence.Table;
 @Entity
 @Table(name="cms_cmtInfo")
 public class Comment {
-  
+
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "cno")
   private long no;
-  
+
   @Column(name="bno")
   private int boardNo;
-  
+
   private int stage;
   private String content;
-  
+
   @Column(name="rdt")
   private Date registrationDate;
-  
+
   @ManyToOne
   @JoinColumn(name ="wNo")
   private Worker writer;
-  
+
   private int momNo;
   private int status;
-  
+
   public long getNo() {
     return no;
   }
+
   public Comment setNo(long no) {
     this.no = no;
     return this;
@@ -90,5 +91,5 @@ public class Comment {
     this.status = status;
     return this;
   }
-  
+
 }

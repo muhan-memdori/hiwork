@@ -21,7 +21,6 @@ public class BoardController {
 
   @Autowired BoardService boardService;
 
-  
   @GetMapping("form")
   public void form() {
 

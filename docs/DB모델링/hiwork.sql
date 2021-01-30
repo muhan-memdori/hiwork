@@ -520,6 +520,11 @@ regiDate, tel, gender, tAnnu, pwd, eSt)
 values(5, 0, '3', '박영양', 'eee@test.com', '영양.jpg', '주임', '정규직',
 '2020-07-13', '01044444444', '1', '12', '1111', 0);
 
+insert into cms_worker(wNo, aCode, tCode, wName, email, wPhoto, rank, eType,
+regiDate, tel, gender, tAnnu, pwd, eSt)
+values(10, 9, '9', '정관리', 'admin@test.com', '관리.jpg', '관리', '정규직',
+'2020-07-13', '01055555555', '1', '12', '1111', 0);
+
 
 -- 일정 예제데이터
 insert into cms_calender(calNo, wNo, title, sdt, edt, content, place)
