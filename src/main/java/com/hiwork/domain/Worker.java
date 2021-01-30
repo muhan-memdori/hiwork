@@ -1,15 +1,21 @@
 package com.hiwork.domain;
 
 import java.sql.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Worker {
   
   public static final int ADMIN = 9; // 관리자
   public static final int STAFF = 0; // 사원
   public static final int HR= 1; // Human Resources 인사
   
-  private int authority;
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int no; // 사원 번호
+  private int authority;
   private int gender; // 성별
   private String name; // 사원 이름
   private String email; // 사원 이메일

@@ -1,7 +1,13 @@
 package com.hiwork.domain;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+
+@Entity
 public class Board {
 
   // 게시판
@@ -11,6 +17,7 @@ public class Board {
   public static final int CAFETERIA = 4;   // 구내식단
 
   // 게시글 정보
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int no;
   private int categoryNo;              // 게시판 번호 (외래키)
   private String title;
