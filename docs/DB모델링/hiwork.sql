@@ -37,6 +37,12 @@ DROP TABLE IF EXISTS cms_chat RESTRICT;
 -- 대화방참여자
 DROP TABLE IF EXISTS cms_cGroup RESTRICT;
 
+-- 회사연혁
+DROP TABLE IF EXISTS cms_cHistory RESTRICT;
+
+-- 지사 목록
+DROP TABLE IF EXISTS cms_brList RESTRICT;
+
 -- 게시글 정보
 CREATE TABLE cms_bList (
   bNo      INTEGER     NOT NULL, -- 게시글번호
@@ -108,7 +114,7 @@ CREATE TABLE cms_worker (
   gender   INTEGER      NOT NULL, -- 성별
   tAnnu    INTEGER      NOT NULL, -- 총 연차
   pwd      VARCHAR(255) NOT NULL, -- 비밀번호
-  eSt      INTEGER      NOT NULL  -- 재직 상태
+  eSt      INTEGER      NOT NULL,  -- 재직 상태
   status   INTEGER      NOT NULL DEFAULT 1 -- 활성상태
 );
 
@@ -281,6 +287,35 @@ ALTER TABLE cms_cGroup
       gChatNo  -- 대화방번호
     );
 
+-- 회사연혁
+CREATE TABLE cms_cHistory (
+  crhNo    INTEGER    NOT NULL, -- 회사연혁번호
+  crNo     INTEGER    NOT NULL, -- 법인등록번호
+  crhTitle INTEGER    NOT NULL, -- 연혁 년도
+  content  MEDIUMTEXT NOT NULL  -- 연혁 내용
+);
+
+-- 회사연혁
+ALTER TABLE cms_cHistory
+  ADD CONSTRAINT PK_cms_cHistory -- 회사연혁 기본키
+    PRIMARY KEY (
+      crhNo -- 회사연혁번호
+    );
+
+-- 지사 목록
+CREATE TABLE cms_brList (
+  brCode VARCHAR(20) NOT NULL, -- 지사 코드
+  crNo   INTEGER     NOT NULL, -- 법인등록번호
+  brName VARCHAR(50) NOT NULL  -- 새 컬럼
+);
+
+-- 지사 목록
+ALTER TABLE cms_brList
+  ADD CONSTRAINT PK_cms_brList -- 지사 목록 기본키
+    PRIMARY KEY (
+      brCode -- 지사 코드
+    );
+
 -- 게시글 정보
 ALTER TABLE cms_bList
   ADD CONSTRAINT FK_cms_category_TO_cms_bList -- 게시판 -> 게시글 정보
@@ -413,6 +448,26 @@ ALTER TABLE cms_cGroup
       gChatNo -- 대화방번호
     );
 
+-- 회사연혁
+ALTER TABLE cms_cHistory
+  ADD CONSTRAINT FK_cms_cInfo_TO_cms_cHistory -- 회사정보 -> 회사연혁
+    FOREIGN KEY (
+      crNo -- 법인등록번호
+    )
+    REFERENCES cms_cInfo ( -- 회사정보
+      crNo -- 법인등록번호
+    );
+
+-- 지사 목록
+ALTER TABLE cms_brList
+  ADD CONSTRAINT FK_cms_cInfo_TO_cms_brList -- 회사정보 -> 지사 목록
+    FOREIGN KEY (
+      crNo -- 법인등록번호
+    )
+    REFERENCES cms_cInfo ( -- 회사정보
+      crNo -- 법인등록번호
+    );
+    
     
 -- 권한 예제데이터
 insert into cms_auth(aCode, name)
