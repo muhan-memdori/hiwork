@@ -2,6 +2,8 @@ package com.hiwork.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 import com.hiwork.domain.Board;
 import com.hiwork.repository.BoardRepository;
 
@@ -24,11 +26,11 @@ public class BoardService {
   }
 
   public List<Board> list() {
-    return boardRepository.findAll();
+    return boardRepository.findAllByStatusOrderByRegistrationDateDesc(1);
   }
 
   public Optional<Board> get(int no) {
-    Optional<Board> board = boardRepository.findById(no);
+    Optional<Board> board = boardRepository.findByNoAndStatus(no, 1);
     board.ifPresent(b -> {
       boardRepository.updateViewCount(b.getNo());
     });

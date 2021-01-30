@@ -33,7 +33,25 @@
     }
   }
 });
-  </script>
+
+calendar.render();
+</script>
+
+    <script th:inline="javascript">
+        /*[# th:each="c : ${list}"]*/
+calendar.createSchedules([
+  {
+    id: /*[[${c.calCode}]]*/,
+    calendarId: 'Major Lecture',
+    title: /*[[${c.title}]]*/,
+    category: 'time',
+    start: /*[[${c.sdt}]]*/,
+    end: /*[[${c.edt}]]*/
+  }
+]);
+        /*[/]*/
+
+    </script>
   <!-- 달력 -->
   <div id="calendar" style="height: 800px;"></div>
 

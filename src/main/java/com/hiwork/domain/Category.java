@@ -20,13 +20,15 @@ public class Category {
   public int getNo() {
     return no;
   }
-  public void setNo(int no) {
+  public Category setNo(int no) {
     this.no = no;
+    return this;
   }
   public String getName() {
     return name;
   }
-  public void setName(String name) {
+  public Category setName(String name) {
     this.name = name;
+    return this;
   }
 }

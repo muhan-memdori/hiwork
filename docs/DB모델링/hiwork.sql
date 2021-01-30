@@ -49,7 +49,7 @@ CREATE TABLE `cms_bList` (
   `ctNo`     INTEGER     NOT NULL, -- 게시판번호
   `wNo`      INTEGER     NOT NULL, -- 사원 번호
   `title`    VARCHAR(50) NOT NULL, -- 제목
-  `regiDate` DATE        NOT NULL DEFAULT now(), -- 등록일
+  `regiDate` DATETIME    NOT NULL DEFAULT now(), -- 등록일
   `vCount`   INTEGER     NOT NULL, -- 조회수
   `aFile`    VARCHAR(50) NULL,     -- 첨부파일명
   `fSize`    INTEGER     NULL,     -- 첨부파일 용량
@@ -164,7 +164,7 @@ CREATE TABLE `cms_vApp` (
   `vNo`   INTEGER     NOT NULL, -- 휴가신청번호
   `vCode` VARCHAR(20) NOT NULL, -- 휴가 코드
   `wNo`   INTEGER     NOT NULL, -- 사원 번호
-  `adt`   DATE        NOT NULL, -- 신청일
+  `adt`   DATETIME    NOT NULL, -- 신청일
   `sdt`   DATE        NOT NULL DEFAULT now(), -- 시작일
   `edt`   DATE        NOT NULL, -- 종료일
   `used`  INTEGER     NOT NULL, -- 사용연차일수
@@ -198,7 +198,7 @@ CREATE TABLE `cms_cmtInfo` (
   `bNo`     INTEGER    NOT NULL, -- 게시글번호
   `stage`   INTEGER    NOT NULL, -- 단계
   `content` MEDIUMTEXT NOT NULL, -- 내용
-  `rdt`     DATE       NOT NULL DEFAULT now(), -- 등록일
+  `rdt`     DATETIME   NOT NULL DEFAULT now(), -- 등록일
   `wNo`     INTEGER    NOT NULL, -- 사원 번호
   `momNo`   INTEGER    NULL,     -- 부모 댓글
   `status`  INTEGER    NOT NULL DEFAULT 1 -- 상태
@@ -263,7 +263,7 @@ CREATE TABLE `cms_chat` (
   `gChatNo`  INTEGER     NOT NULL, -- 대화방번호
   `cContent` MEDIUMTEXT  NOT NULL, -- 메시지
   `cName`    VARCHAR(50) NOT NULL, -- 메시지유형
-  `cDate`    DATE        NOT NULL DEFAULT now() -- 생성일
+  `cDate`    DATETIME    NOT NULL DEFAULT now() -- 생성일
 );
 
 -- 대화
@@ -527,13 +527,13 @@ values(10, 9, '9', '정관리', 'admin@test.com', '관리.jpg', '관리', '정�
 
 -- 일정 예제데이터
 insert into cms_calender(calNo, wNo, title, sdt, edt, content, place)
-values('1', 1, '회의', '2020-07-13', '2020-12-31', '회의하는날', '회사');
+values('1', 1, '회의', '2021-01-13', '2021-01-15', '회의하는날', '회사');
 
 insert into cms_calender(calNo, wNo, title, sdt, edt, content, place)
-values('2', 2, '회의2', '2020-07-13', '2020-12-31', '회의하는날2', '회사');
+values('2', 2, '회의2', '2021-01-4', '2021-01-19', '회의하는날2', '회사');
 
 insert into cms_calender(calNo, wNo, title, sdt, edt, content, place)
-values('3', 2, '발표', '2020-11-17', '2020-11-18', '발표하는날', '회사');
+values('3', 2, '발표', '2021-01-28', '2021-01-28', '발표하는날', '회사');
 
 
 -- 휴가 종류 예제데이터

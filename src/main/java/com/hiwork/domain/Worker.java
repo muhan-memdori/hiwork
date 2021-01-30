@@ -29,7 +29,7 @@ public class Worker {
   @Column(name="email")
   private String email; // 사원 이메일
   @Column(name="pwd")
-  private int password; // 비밀번호
+  private String password; // 비밀번호
   @Column(name="wphoto")
   private String photo; // 사원 사진
   @Column(name="rank")
@@ -90,10 +90,10 @@ public class Worker {
     this.email = email;
     return this;
   }
-  public int getPassword() {
+  public String getPassword() {
     return password;
   }
-  public Worker setPassword(int password) {
+  public Worker setPassword(String password) {
     this.password = password;
     return this;
   }
