@@ -35,9 +35,7 @@ public class WorkerService {
     return workerRepository.save(worker);
   }
 
-  /*
   public Worker get(String email, String password) {
-    return workerRepository.findByEmailAndPassword;
+    return workerRepository.findByEmailAndPassword(email, password);
   }
-  */
 }

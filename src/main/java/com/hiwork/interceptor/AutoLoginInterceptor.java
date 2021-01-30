@@ -19,9 +19,8 @@ public class AutoLoginInterceptor implements HandlerInterceptor {
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
       throws Exception {
     if (request.getSession().getAttribute("loginUser") == null) {
-      //Worker worker = workerService.get("aaa@test.com", "1111");
-      Worker loginUser = new Worker().setNo(1L).setEmail("aaa@test.com").setName("김태희");
-      request.getSession().setAttribute("loginUser", loginUser);
+      Worker worker = workerService.get("aaa@test.com", "1111");
+      request.getSession().setAttribute("loginUser", worker);
     }
     return true;
   }

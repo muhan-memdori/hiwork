@@ -49,7 +49,7 @@ CREATE TABLE `cms_bList` (
   `ctNo`     INTEGER     NOT NULL, -- 게시판번호
   `wNo`      INTEGER     NOT NULL, -- 사원 번호
   `title`    VARCHAR(50) NOT NULL, -- 제목
-  `regiDate` DATE        NOT NULL DEFAULT now(), -- 등록일
+  `regiDate` DATETIME    NOT NULL DEFAULT now(), -- 등록일
   `vCount`   INTEGER     NOT NULL, -- 조회수
   `aFile`    VARCHAR(50) NULL,     -- 첨부파일명
   `fSize`    INTEGER     NULL,     -- 첨부파일 용량
@@ -164,7 +164,7 @@ CREATE TABLE `cms_vApp` (
   `vNo`   INTEGER     NOT NULL, -- 휴가신청번호
   `vCode` VARCHAR(20) NOT NULL, -- 휴가 코드
   `wNo`   INTEGER     NOT NULL, -- 사원 번호
-  `adt`   DATE        NOT NULL, -- 신청일
+  `adt`   DATETIME    NOT NULL, -- 신청일
   `sdt`   DATE        NOT NULL DEFAULT now(), -- 시작일
   `edt`   DATE        NOT NULL, -- 종료일
   `used`  INTEGER     NOT NULL, -- 사용연차일수
@@ -198,7 +198,7 @@ CREATE TABLE `cms_cmtInfo` (
   `bNo`     INTEGER    NOT NULL, -- 게시글번호
   `stage`   INTEGER    NOT NULL, -- 단계
   `content` MEDIUMTEXT NOT NULL, -- 내용
-  `rdt`     DATE       NOT NULL DEFAULT now(), -- 등록일
+  `rdt`     DATETIME   NOT NULL DEFAULT now(), -- 등록일
   `wNo`     INTEGER    NOT NULL, -- 사원 번호
   `momNo`   INTEGER    NULL,     -- 부모 댓글
   `status`  INTEGER    NOT NULL DEFAULT 1 -- 상태
@@ -263,7 +263,7 @@ CREATE TABLE `cms_chat` (
   `gChatNo`  INTEGER     NOT NULL, -- 대화방번호
   `cContent` MEDIUMTEXT  NOT NULL, -- 메시지
   `cName`    VARCHAR(50) NOT NULL, -- 메시지유형
-  `cDate`    DATE        NOT NULL DEFAULT now() -- 생성일
+  `cDate`    DATETIME    NOT NULL DEFAULT now() -- 생성일
 );
 
 -- 대화
