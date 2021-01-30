@@ -18,7 +18,7 @@ public class Worker {
   
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name="wNo")
-  private int no; // 사원 번호
+  private long no; // 사원 번호
   @Column(name="aCode")
   private int authorityNo;
   @Column(name="tCode")
@@ -61,10 +61,10 @@ public class Worker {
     this.authorityNo = authorityNo;
     return this;
   }
-  public int getNo() {
+  public long getNo() {
     return no;
   }
-  public Worker setNo(int no) {
+  public Worker setNo(long no) {
     this.no = no;
     return this;
   }

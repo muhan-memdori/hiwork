@@ -1,13 +1,13 @@
 package com.hiwork.domain;
 
 public class Auth {
-  private int aCode;
+  private long aCode;
   private String name;
 
-  public int getaCode() {
+  public long getaCode() {
     return aCode;
   }
-  public void setaCode(int aCode) {
+  public void setaCode(long aCode) {
     this.aCode = aCode;
   }
   public String getName() {

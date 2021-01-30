@@ -16,7 +16,7 @@ public class Comment {
 
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "cNo")
-  private int no;
+  private long no;
 
   @Column(name="bNo")
   private int boardNo;
@@ -34,10 +34,11 @@ public class Comment {
   private int momNo;
   private int status;
 
-  public int getNo() {
+  public long getNo() {
     return no;
   }
-  public Comment setNo(int no) {
+
+  public Comment setNo(long no) {
     this.no = no;
     return this;
   }

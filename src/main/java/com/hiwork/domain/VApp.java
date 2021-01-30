@@ -3,7 +3,7 @@ package com.hiwork.domain;
 import java.sql.Date;
 
 public class VApp {
-  private int vNo;
+  private long vNo;
   private String vCode;
   private int wNo;
   private Date adt;
@@ -13,10 +13,10 @@ public class VApp {
   private String rs;
   private String appr;
 
-  public int getvNo() {
+  public long getvNo() {
     return vNo;
   }
-  public void setvNo(int vNo) {
+  public void setvNo(long vNo) {
     this.vNo = vNo;
   }
   public String getvCode() {

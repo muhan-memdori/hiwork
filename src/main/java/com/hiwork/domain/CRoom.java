@@ -1,14 +1,14 @@
 package com.hiwork.domain;
 
 public class CRoom {
-  private int gChatCode;
+  private long gChatCode;
   private String cName;
   private String cExpl;
 
-  public int getgChatCode() {
+  public long getgChatCode() {
     return gChatCode;
   }
-  public void setgChatCode(int gChatCode) {
+  public void setgChatCode(long gChatCode) {
     this.gChatCode = gChatCode;
   }
   public String getcName() {

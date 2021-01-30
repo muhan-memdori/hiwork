@@ -35,3 +35,10 @@ out/
 
 ### VS Code ###
 .vscode/
+
+*exe
+node_modules/
+temp/
+Debug/
+Release/
+html-exam/
