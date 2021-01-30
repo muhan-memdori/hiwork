@@ -108,9 +108,4 @@ public class Board {
   public static int getCafeteria() {
     return CAFETERIA;
   }
-
-
-
-
-
 }
