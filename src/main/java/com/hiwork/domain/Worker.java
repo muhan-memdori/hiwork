@@ -1,10 +1,7 @@
 package com.hiwork.domain;
 
 import java.sql.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Worker {
@@ -15,19 +12,30 @@ public class Worker {
   
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int no; // 사원 번호
+  @Column(name="aCode")
   private int authority;
+  @Column(name="gender")
   private int gender; // 성별
+  @Column(name="wName")
   private String name; // 사원 이름
+  @Column(name="email")
   private String email; // 사원 이메일
+  @Column(name="pwd")
   private int password; // 비밀번호
+  @Column(name="wPhoto")
   private String photo; // 사원 사진
+  @Column(name="rank")
   private String rank; // 사원 직급
+  @Column(name="tel")
   private int tel; // 휴대폰번호
+  @Column(name="eType")
   private String employmentType; // 고용형태
-  private Date registrationDate; // 입사일  
-  private int TotaAnnual; // 총 연차
+  @Column(name="regiDate")
+  private Date registrationDate; // 입사일
+  @Column(name="tAnnu")
+  private int totaAnnual; // 총 연차
+  @Column(name="eSt")
   private int employmentState; // 재직상태
-  private int status;
  
   public static int getAdmin() {
     return ADMIN;
@@ -116,10 +124,10 @@ public class Worker {
     return this;
   }
   public int getTotaAnnual() {
-    return TotaAnnual;
+    return totaAnnual;
   }
   public Worker setTotaAnnual(int totaAnnual) {
-    TotaAnnual = totaAnnual;
+    totaAnnual = totaAnnual;
     return this;
   }
   public int getEmploymentState() {
@@ -127,13 +135,6 @@ public class Worker {
   }
   public Worker setEmploymentState(int employmentState) {
     this.employmentState = employmentState;
-    return this;
-  }
-  public int getStatus() {
-    return status;
-  }
-  public Worker setStatus(int status) {
-    this.status = status;
     return this;
   }
 }
