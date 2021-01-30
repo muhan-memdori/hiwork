@@ -13,41 +13,43 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="cms_blist")
+@Table(name = "cms_blist")
 public class Board {
-  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name="bno")
-  private long no;
-  
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "bno")
+  private int no;
+
   private String title;
-  
-  @ManyToOne(targetEntity=Category.class, fetch=FetchType.LAZY)
-  @JoinColumn(name ="ctno")
+
+  @ManyToOne(targetEntity = Category.class, fetch = FetchType.LAZY)
+  @JoinColumn(name = "ctno")
   private Category category;
-  
-  @Column(name="regidate", insertable = false)
+
+  @Column(name = "regidate", insertable = false, updatable = false)
   private Date registrationDate;
-  
-  @Column(name="vcount")
+
+  @Column(name = "vcount")
   private int viewCount;
-  
-  @Column(name="afile")
+
+  @Column(name = "afile")
   private String attachedFile;
-  
-  @Column(name="fsize")
+
+  @Column(name = "fsize")
   private int fileSize;
   private String content;
-  
-  @ManyToOne(targetEntity=Worker.class, fetch=FetchType.LAZY)
-  @JoinColumn(name ="wno")
+
+  @ManyToOne(targetEntity = Worker.class, fetch = FetchType.LAZY)
+  @JoinColumn(name = "wno", updatable = false)
   private Worker writer;
   private int status;
 
-  public long getNo() {
+  public int getNo() {
     return no;
   }
 
-  public Board setNo(long no) {
+  public Board setNo(int no) {
     this.no = no;
     return this;
   }
@@ -56,7 +58,7 @@ public class Board {
     return category;
   }
 
-  public Board setCategoryNo(Category category) {
+  public Board setCategory(Category category) {
     this.category = category;
     return this;
   }
@@ -123,7 +125,7 @@ public class Board {
     this.writer = writer;
     return this;
   }
-  
+
   public int getStatus() {
     return status;
   }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import com.hiwork.domain.Board;
+import com.hiwork.domain.Category;
 import com.hiwork.domain.Worker;
 import com.hiwork.service.BoardService;
 
@@ -29,8 +30,10 @@ public class BoardController {
   @PostMapping("add")
   public String add(
       Board board,
+      int categoryNo,
       @ModelAttribute("loginUser") Worker loginUser) throws Exception {
     board.setWriter(loginUser);
+    board.setCategory(new Category().setNo(categoryNo));
     boardService.add(board);
     return "redirect:list";
   }
@@ -46,12 +49,11 @@ public class BoardController {
   @GetMapping("detail")
   public String detail(
       int no,
-      @RequestParam(defaultValue = "1") int templateType,
       Model model) throws Exception {
 
     Optional<Board> board = boardService.get(no);
     board.orElseThrow();
-    model.addAttribute("board", board);
+    model.addAttribute("board", board.get());
     return "board/detail";
   }
 
@@ -61,7 +63,8 @@ public class BoardController {
   }
 
   @PostMapping("update")
-  public String update(Board board) throws Exception {
+  public String update(Board board, int categoryNo) throws Exception {
+    board.setCategory(new Category().setNo(categoryNo));
     if (boardService.update(board) == null) {
       throw new Exception("해당 번호의 게시글이 없습니다.");
     }

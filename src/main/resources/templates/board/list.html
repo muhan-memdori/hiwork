@@ -16,7 +16,7 @@
 
 <tr th:each="b : ${list}">
   <td th:text="${b.no}">번호</td>
-  <td th:text="${b.title}"><a href='detail?no=${b.no}'>제목</a></td>
+  <td><a th:href="|detail?no=${b.no}|" th:text="${b.title}">제목</a></td>
   <td th:text="${b.writer.name}">작성자</td>
   <td th:text="${b.registrationDate}">등록일</td>
   <td th:text="${b.viewCount}">조회수</td>
