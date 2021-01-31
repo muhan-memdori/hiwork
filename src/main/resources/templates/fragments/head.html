@@ -7,7 +7,9 @@
   <meta charset="UTF-8" />
   
   <!-- 공통적인 css -->
-  <link rel="stylesheet" href="css/commons.css" />
+  <link rel="stylesheet" th:href="@{/css/commons.css}"/>
+  <link rel="stylesheet" th:href="@{/css/footer.css}"/>
+  <link rel="stylesheet" th:href="@{/css/header.css}"/>
   
   <!-- 개별적인 css -->
   <th:block layout:fragment="css"></th:block>
