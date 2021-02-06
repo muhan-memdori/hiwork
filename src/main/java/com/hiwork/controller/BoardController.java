@@ -1,15 +1,12 @@
 package com.hiwork.controller;
 
 import java.util.Optional;
+
+import com.hiwork.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import com.hiwork.domain.Board;
 import com.hiwork.domain.Category;
 import com.hiwork.domain.Worker;
@@ -21,6 +18,7 @@ import com.hiwork.service.BoardService;
 public class BoardController {
 
   @Autowired BoardService boardService;
+  @Autowired CommentService commentService;
 
   @GetMapping("form")
   public void form() {
@@ -46,14 +44,15 @@ public class BoardController {
     return "redirect:list";
   }
 
-  @GetMapping("detail")
+  @GetMapping("{no}")
   public String detail(
-      int no,
+      @PathVariable int no,
       Model model) throws Exception {
 
     Optional<Board> board = boardService.get(no);
     board.orElseThrow();
     model.addAttribute("board", board.get());
+    model.addAttribute("comments", commentService.list(no));
     return "board/detail";
   }
 
