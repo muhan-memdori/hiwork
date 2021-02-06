@@ -211,6 +211,9 @@ ALTER TABLE `cms_cmtInfo`
       `cNo` -- 댓글 번호
     );
 
+ALTER TABLE `cms_cmtInfo`
+  MODIFY COLUMN `cNo` INTEGER NOT NULL AUTO_INCREMENT;
+
 -- 대화방
 CREATE TABLE `cms_cRoom` (
   `gChatNo` INTEGER     NOT NULL, -- 대화방번호
