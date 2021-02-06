@@ -29,7 +29,7 @@ public class CommentController {
       @ModelAttribute("loginUser") Worker loginUser) throws Exception {
     comment.setWriter(loginUser);
     commentService.add(comment);
-    return "redirect:list";
+    return "redirect:../board/" + comment.getBoardNo();
   }
 
   @GetMapping("delete")

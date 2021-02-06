@@ -25,7 +25,7 @@ public class Comment {
   private int stage;
   private String content;
 
-  @Column(name="rdt")
+  @Column(name="rdt", insertable = false, updatable = false)
   private Date registrationDate;
 
   @ManyToOne
@@ -34,6 +34,8 @@ public class Comment {
 
   @Column(name="momno")
   private int momNo;
+
+  @Column(insertable = false)
   private int status;
 
   public int getNo() {
