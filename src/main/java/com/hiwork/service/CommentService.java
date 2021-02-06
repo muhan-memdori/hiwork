@@ -27,7 +27,7 @@ public class CommentService {
   }
 
   public List<Comment> list(int boardNo) {
-    return commentRepository.findAllByBoardNoByStatusOrderByRegistrationDateDesc(boardNo, 1);
+    return commentRepository.findAllByBoardNoAndStatusOrderByRegistrationDateDesc(boardNo, 1);
   }
 
   public Comment update(Comment comment) {

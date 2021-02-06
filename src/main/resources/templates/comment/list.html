@@ -1,30 +1,70 @@
 <!DOCTYPE html>
-<html   xmlns:th="http://www.thymeleaf.org"
-        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorator="layout/default">
+<html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <title>hello</title>
-</head>
+<h2>댓글</h2>
+    <div th:each="c : ${comments}">
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-64x64">
+            <img src="https://bulma.io/images/placeholders/128x128.png">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <strong th:text="${c.writer.name}">댓글 작성자</strong>
+            <p th:text="${c.content}">
+              댓글내용
+            </p>
+            <small th:text="${c.registrationDate}">작성 날짜</small> <a>답글</a>
+          </div>
+          <!--
+          <article class="media">
+            <figure class="media-left">
+              <p class="image is-48x48">
+                <img src="https://bulma.io/images/placeholders/96x96.png">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>Sean Brown</strong>
+                  <br>
+                  Donec sollicitudin urna eget eros malesuada sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam blandit nisl a nulla sagittis, a lobortis leo feugiat.
+                  <br>
+                  <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+                </p>
+              </div>
+            </div>
+          </article>
+           -->
+        </div>
+      </article>
 
-<div layout:fragment="content">
-  <div class="container">
-  <a href='form' class="btn btn-primary btn-sm">새 글</a><br>
-<table class="table is-hoverable">
-<thead><tr><th>번호</th><th>제목</th><th>작성자</th><th>등록일</th><th>조회수</th></tr></thead>
-<tbody>
-
-<tr th:each="b : ${list}">
-  <td th:text="${b.no}">번호</td>
-  <td><a th:href="${b.no}" th:text="${b.title}">제목</a></td>
-  <td th:text="${b.writer.name}">작성자</td>
-  <td th:text="${b.registrationDate}">등록일</td>
-  <td th:text="${b.viewCount}">조회수</td>
-</tr>
-</tbody>
-</table>
-
-</div>
+      <form action="../comment/add" method="post">
+        <article class="media">
+          <figure class="media-left">
+            <p class="image is-64x64">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="field">
+              <p class="control">
+                <input type='hidden' name='momNo' th:value='0'>
+                <input type='hidden' name='boardNo' th:value='${board.no}'>
+                <input type='hidden' name='stage' th:value='0'>
+                <textarea class="textarea" placeholder="댓글을 입력해주세요.." name="content"></textarea>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control">
+                <button class="button">작성</button>
+              </p>
+            </div>
+          </div>
+        </article>
+      </form>
+    </div>
 </div>
 
 </html>

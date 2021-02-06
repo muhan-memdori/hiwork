@@ -18,5 +18,5 @@ public interface CommentRepository extends JpaRepository<Comment, Integer> {
   @Query("UPDATE Comment c SET c.status = 0 where c.no = :no")
   void inactive(@Param("no") int no);
 
-  List<Comment> findAllByBoardNoByStatusOrderByRegistrationDateDesc(@Param("boardNo") int boardNo, @Param("status") int status);
+  List<Comment> findAllByBoardNoAndStatusOrderByRegistrationDateDesc(@Param("boardNo") int boardNo, @Param("status") int status);
 }

@@ -11,12 +11,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cms_cmtInfo")
+@Table(name="cms_cmtinfo")
 public class Comment {
 
-  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "cno")
-  private long no;
+  private int no;
 
   @Column(name="bno")
   private int boardNo;
@@ -28,17 +29,18 @@ public class Comment {
   private Date registrationDate;
 
   @ManyToOne
-  @JoinColumn(name ="wNo")
+  @JoinColumn(name ="wno")
   private Worker writer;
 
+  @Column(name="momno")
   private int momNo;
   private int status;
 
-  public long getNo() {
+  public int getNo() {
     return no;
   }
 
-  public Comment setNo(long no) {
+  public Comment setNo(int no) {
     this.no = no;
     return this;
   }
