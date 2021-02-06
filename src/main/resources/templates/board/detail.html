@@ -10,6 +10,7 @@
 
 <div layout:fragment="content">
   <div class="container">
+    <div class="section">
   <form action="update" method="post">
     <input type='hidden' name='no' th:value="${board.no}"><br>
     <input class="input is-large" type="text" placeholder="제목" name="title" th:value="${board.title}">
@@ -23,13 +24,17 @@
     </div>
     <input type="hidden" name="categoryNo" th:value="${board.category.no}">
 
-    <button class="button">변경</button>
-  </form>
-  <a th:href="|delete?no=${board.no}|" class="button">삭제</a>
-  <a class="button" href='list'>목록</a>
+    <button class="button is-link">변경</button>
 
+  <a th:href="|delete?no=${board.no}|" class="button is-danger">삭제</a>
+  <a class="button is-link" href='list'>목록</a>
+
+    </form>
+    </div>
+
+    <div th:include="comment/list"></div>
 </div>
-  <div th:include="comment/list"></div>
+
 </div>
 
 </html>

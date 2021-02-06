@@ -16,6 +16,7 @@
               댓글내용
             </p>
             <small th:text="${c.registrationDate}">작성 날짜</small> <a>답글</a>
+            <a th:href="|../comment/delete?no=${c.no}|" class="button is-danger is-small">삭제</a>
           </div>
           <!--
           <article class="media">
@@ -42,29 +43,30 @@
     </div>
 </div>
 
-<form action="../comment/add" method="post">
-  <article class="media">
-    <figure class="media-left">
-      <p class="image is-64x64">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-      </p>
-    </figure>
-    <div class="media-content">
-      <div class="field">
-        <p class="control">
-          <input type='hidden' name='momNo' th:value='0'>
-          <input type='hidden' name='boardNo' th:value='${board.no}'>
-          <input type='hidden' name='stage' th:value='0'>
-          <textarea class="textarea" placeholder="댓글을 입력해주세요.." name="content"></textarea>
+
+  <form action="../comment/add" method="post">
+    <article class="media">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <img src="https://bulma.io/images/placeholders/128x128.png">
         </p>
+      </figure>
+      <div class="media-content">
+        <div class="field">
+          <p class="control">
+            <input type='hidden' name='momNo' th:value='0'>
+            <input type='hidden' name='boardNo' th:value='${board.no}'>
+            <input type='hidden' name='stage' th:value='0'>
+            <textarea class="textarea" placeholder="댓글을 입력해주세요.." name="content"></textarea>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control">
+            <button class="button is-success">작성</button>
+          </p>
+        </div>
       </div>
-      <div class="field">
-        <p class="control">
-          <button class="button">작성</button>
-        </p>
-      </div>
-    </div>
-  </article>
-</form>
+    </article>
+  </form>
 
 </html>
