@@ -5,5 +5,5 @@ import com.hiwork.domain.Calendar;
 
 import java.util.List;
 
-public interface CalendarRepository extends JpaRepository<Calendar, Long>{
+public interface CalendarRepository extends JpaRepository<Calendar, Integer>{
 }
