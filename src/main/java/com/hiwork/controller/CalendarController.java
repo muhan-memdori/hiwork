@@ -1,5 +1,6 @@
 package com.hiwork.controller;
 
+import com.hiwork.domain.Board;
 import com.hiwork.domain.Calendar;
 import com.hiwork.domain.Worker;
 import com.hiwork.service.CalendarService;
@@ -35,6 +36,22 @@ public class CalendarController {
         calendar.setEdt(new Date(edtMillis));
         calendar.setContent("기본 내용");
         calendarService.add(calendar);
+        return "redirect:list";
+    }
+
+    @PostMapping("update")
+    public String update(
+            Calendar calendar,
+            Long sdtMillis,
+            Long edtMillis,
+            @ModelAttribute("loginUser") Worker loginUser) throws Exception {
+        calendar.setWriter(loginUser);
+        calendar.setSdt(new Date(sdtMillis));
+        calendar.setEdt(new Date(edtMillis));
+        calendar.setContent("기본 내용");
+        if (calendarService.update(calendar) == null) {
+            throw new Exception("해당 번호의 스케줄이 없습니다.");
+        }
         return "redirect:list";
     }
 }

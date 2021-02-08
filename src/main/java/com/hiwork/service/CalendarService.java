@@ -19,4 +19,7 @@ public class CalendarService {
     public Calendar add(Calendar calendar) {
         return calendarRepository.save(calendar);
     }
+    public Calendar update(Calendar calendar) {
+        return calendarRepository.save(calendar);
+    }
 }

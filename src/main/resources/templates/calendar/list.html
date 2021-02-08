@@ -48,7 +48,7 @@ calendar.render();
 calendar.createSchedules([
   {
     id: /*[[${c.calCode}]]*/,
-    calendarId: 'Major Lecture',
+    calendarId: 'default',
     title: /*[[${c.title}]]*/,
     category: 'time',
     start: /*[[${c.sdt}]]*/,
@@ -80,9 +80,9 @@ calendar.createSchedules([
     };
 
     calendar.on('beforeCreateSchedule', scheduleData => {
-        calendar.createSchedules([{
-      calendarId: 'Major Lecture',
+      calendar.createSchedules([{
       title: scheduleData.title,
+      calendarId: 'default',
       category: 'time',
       start: scheduleData.start,
       end: scheduleData.end
@@ -99,7 +99,27 @@ calendar.createSchedules([
           status: scheduleData.state = '내 일정' ? 1 : 0
         }
       });
-});
+    });
+
+    calendar.on('beforeUpdateSchedule', event => {
+      var {schedule, changes} = event;
+      changes.calendarId = 'default';
+      calendar.updateSchedule(schedule.id, schedule.calendarId, changes);
+      var updatedSchedule = calendar.getSchedule(schedule.id, 'default');
+
+      $.ajax({
+        type: "POST",
+        url: "/calendar/update",
+        data: {
+          calCode: updatedSchedule.id,
+          title: updatedSchedule.title,
+          place: updatedSchedule.location,
+          sdtMillis: updatedSchedule.start.getUTCTime(),
+          edtMillis: updatedSchedule.end.getUTCTime(),
+          status: updatedSchedule.state = '내 일정' ? 1 : 0
+        }
+      });
+    });
     </script>
     </div>
 </html>
