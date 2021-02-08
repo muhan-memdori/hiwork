@@ -26,19 +26,13 @@ public class CalendarController {
 
     @PostMapping("add")
     public String add(
-            String title,
-            String place,
-            Long sdt,
-            Long edt,
-            int status,
+            Calendar calendar,
+            Long sdtMillis,
+            Long edtMillis,
             @ModelAttribute("loginUser") Worker loginUser) throws Exception {
-        Calendar calendar = new Calendar();
-        calendar.setTitle(title);
-        calendar.setPlace(place);
         calendar.setWriter(loginUser);
-        calendar.setSdt(new Date(sdt));
-        calendar.setEdt(new Date(edt));
-        calendar.setStatus(status);
+        calendar.setSdt(new Date(sdtMillis));
+        calendar.setEdt(new Date(edtMillis));
         calendar.setContent("기본 내용");
         calendarService.add(calendar);
         return "redirect:list";

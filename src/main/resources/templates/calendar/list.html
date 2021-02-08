@@ -94,8 +94,8 @@ calendar.createSchedules([
         data: {
           title: scheduleData.title,
           place: scheduleData.location,
-          sdt: scheduleData.start.getUTCTime(),
-          edt: scheduleData.end.getUTCTime(),
+          sdtMillis: scheduleData.start.getUTCTime(),
+          edtMillis: scheduleData.end.getUTCTime(),
           status: scheduleData.state = '내 일정' ? 1 : 0
         }
       });
