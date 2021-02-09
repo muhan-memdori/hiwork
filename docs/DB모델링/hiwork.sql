@@ -476,6 +476,17 @@ ALTER TABLE `cms_brList`
             `crNo` -- 법인등록번호
         );
 
+        
+-- 권한 예제데이터
+insert into cms_auth(aCode, name)
+values(0, '사원');
+
+insert into cms_auth(aCode, name)
+values(1, '인사');
+
+insert into cms_auth(aCode, name)
+values(9, '관리자');
+
 -- 회사정보 예제데이터
 insert into cms_cInfo(crNo, cName, map, postNo, addr, tel, fax)
 values(1248100998, '하이워크', '1', '1234', '서울특별시 서초구 신논현', '02-1111-1111', '02-3333-3333');
