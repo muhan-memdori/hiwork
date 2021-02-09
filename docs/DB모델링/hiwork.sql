@@ -237,7 +237,8 @@ CREATE TABLE `cms_calender` (
     `edt`     DATE         NOT NULL, -- 종료일
     `content` MEDIUMTEXT   NOT NULL, -- 내용
     `place`   VARCHAR(255) NULL,     -- 장소
-    `status`  INTEGER      NOT NULL  -- 상태
+    `status`  INTEGER      NOT NULL DEFAULT 1, -- 상태
+    `auth`    INTEGER      NULL      -- 권한
 );
 
 -- 일정
@@ -474,16 +475,6 @@ ALTER TABLE `cms_brList`
         REFERENCES `cms_cInfo` ( -- 회사정보
             `crNo` -- 법인등록번호
         );
-    
--- 권한 예제데이터
-insert into cms_auth(aCode, name)
-values(0, '사원');
-
-insert into cms_auth(aCode, name)
-values(1, '인사');
-
-insert into cms_auth(aCode, name)
-values(9, '관리자');
 
 -- 회사정보 예제데이터
 insert into cms_cInfo(crNo, cName, map, postNo, addr, tel, fax)
@@ -533,13 +524,13 @@ values(10, 9, '9', '정관리', 'admin@test.com', '관리.jpg', '관리', '정�
 
 
 -- 일정 예제데이터
-insert into cms_calender(calNo, wNo, title, sdt, edt, content, place, status)
+insert into cms_calender(calNo, wNo, title, sdt, edt, content, place, auth)
 values('1', 1, '회의', '2021-01-13', '2021-01-15', '회의하는날', '회사', 1);
 
-insert into cms_calender(calNo, wNo, title, sdt, edt, content, place, status)
+insert into cms_calender(calNo, wNo, title, sdt, edt, content, place, auth)
 values('2', 2, '회의2', '2021-01-4', '2021-01-19', '회의하는날2', '회사', 1);
 
-insert into cms_calender(calNo, wNo, title, sdt, edt, content, place, status)
+insert into cms_calender(calNo, wNo, title, sdt, edt, content, place, auth)
 values('3', 2, '발표', '2021-01-28', '2021-01-28', '발표하는날', '회사', 1);
 
 

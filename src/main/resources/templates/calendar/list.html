@@ -96,7 +96,8 @@ calendar.createSchedules([
           place: scheduleData.location,
           sdtMillis: scheduleData.start.getUTCTime(),
           edtMillis: scheduleData.end.getUTCTime(),
-          status: scheduleData.state = '내 일정' ? 1 : 0
+          auth: scheduleData.state = '내 일정' ? 1 : 0,
+          status: 1
         }
       });
     });
@@ -116,9 +117,24 @@ calendar.createSchedules([
           place: updatedSchedule.location,
           sdtMillis: updatedSchedule.start.getUTCTime(),
           edtMillis: updatedSchedule.end.getUTCTime(),
-          status: updatedSchedule.state = '내 일정' ? 1 : 0
+          auth: updatedSchedule.state = '내 일정' ? 1 : 0,
+          status: 1
         }
       });
+    });
+
+    calendar.on('beforeDeleteSchedule', scheduleData => {
+      const {schedule} = scheduleData;
+
+      $.ajax({
+        type: "POST",
+        url: "/calendar/delete",
+        data: {
+          calCode: schedule.id,
+        }
+      });
+
+      calendar.deleteSchedule(schedule.id, schedule.calendarId);
     });
     </script>
     </div>

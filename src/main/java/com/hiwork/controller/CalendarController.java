@@ -28,8 +28,8 @@ public class CalendarController {
     @PostMapping("add")
     public String add(
             Calendar calendar,
-            Long sdtMillis,
-            Long edtMillis,
+            long sdtMillis,
+            long edtMillis,
             @ModelAttribute("loginUser") Worker loginUser) throws Exception {
         calendar.setWriter(loginUser);
         calendar.setSdt(new Date(sdtMillis));
@@ -50,6 +50,14 @@ public class CalendarController {
         calendar.setEdt(new Date(edtMillis));
         calendar.setContent("기본 내용");
         if (calendarService.update(calendar) == null) {
+            throw new Exception("해당 번호의 스케줄이 없습니다.");
+        }
+        return "redirect:list";
+    }
+
+    @PostMapping("delete")
+    public String delete(int calCode) throws Exception {
+        if (calendarService.delete(calCode) == 0) {
             throw new Exception("해당 번호의 스케줄이 없습니다.");
         }
         return "redirect:list";

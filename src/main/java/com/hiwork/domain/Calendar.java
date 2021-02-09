@@ -24,6 +24,7 @@ public class Calendar {
   private Date edt;
   private String content;
   private String place;
+  private int auth;
   private int status;
 
   public int getCalCode() {
@@ -70,6 +71,6 @@ public class Calendar {
   }
   public int getStatus() { return status; }
   public void setStatus(int status) { this.status = status; }
-
-
+  public int getAuth() { return auth; }
+  public void setAuth(int auth) { this.auth = auth; }
 }

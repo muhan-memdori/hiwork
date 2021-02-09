@@ -14,12 +14,17 @@ public class CalendarService {
         this.calendarRepository = calendarRepository;
     }
     public List<Calendar> list() {
-        return calendarRepository.findAll();
+        return calendarRepository.findAllByStatus(1);
     }
     public Calendar add(Calendar calendar) {
         return calendarRepository.save(calendar);
     }
     public Calendar update(Calendar calendar) {
         return calendarRepository.save(calendar);
+    }
+
+    public int delete(int calCode) {
+        calendarRepository.inactive(calCode);
+        return 1;
     }
 }
