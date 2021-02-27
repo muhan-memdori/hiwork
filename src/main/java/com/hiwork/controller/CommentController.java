@@ -47,7 +47,7 @@ public class CommentController {
     if (commentService.update(comment) == null) {
       throw new Exception("해당 번호의 게시글이 없습니다.");
     }
-    return "redirect:list";
+    return "redirect:../board/" + comment.getBoardNo();
   }
 
 }

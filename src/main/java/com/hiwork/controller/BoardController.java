@@ -1,5 +1,6 @@
 package com.hiwork.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.hiwork.service.CommentService;
@@ -57,8 +58,11 @@ public class BoardController {
   }
 
   @GetMapping("list")
-  public void list(Model model) throws Exception {
-    model.addAttribute("list", boardService.list());
+  public void list(
+          Model model)
+          throws Exception {
+
+    model.addAttribute("boards", boardService.list());
   }
 
   @PostMapping("update")

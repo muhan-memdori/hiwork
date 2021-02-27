@@ -19,20 +19,23 @@ public class Comment {
   @Column(name = "cno")
   private int no;
 
-  @Column(name="bno")
+  @Column(name="bno", updatable = false)
   private int boardNo;
 
+  @Column(name="stage", updatable = false)
   private int stage;
+
+  @Column(name="content")
   private String content;
 
   @Column(name="rdt", insertable = false, updatable = false)
   private Date registrationDate;
 
   @ManyToOne
-  @JoinColumn(name ="wno")
+  @JoinColumn(name ="wno", updatable = false)
   private Worker writer;
 
-  @Column(name="momno")
+  @Column(name="momno", updatable = false)
   private int momNo;
 
   @Column(insertable = false)
